@@ -1,46 +1,4 @@
-from math import sqrt
 
-
-def is_prime(n):
-    i = 2
-    while i < sqrt(n) + 1 and n % i != 0:
-        i += 1
-    return n % i != 0
-
-
-def factors(n):
-    res = []
-    while n > 1:
-        i = 2
-        while i < sqrt(n) + 1 and n % i != 0:
-            i += 1
-        if n % i == 0:
-            res.append(i)
-            n //= i
-        else:
-            res.append(n)
-            n = 1
-    return res
-
-
-def euler_func(fact_list):
-    fact_dict = {}
-    for i in fact_list:
-        fact_dict[i] = fact_dict.get(i, 0) + 1
-    res = 1
-    for i in fact_dict:
-        res *= (i**fact_dict[i] - i**(fact_dict[i] - 1))
-    return res
-
-
-def exponentiation(exponent, power):
-    if power == 0:
-        return 1
-    elif power % 2 == 1:
-        return exponent * exponentiation(exponent, power - 1)
-    else:
-        half = exponentiation(exponent, power // 2)
-        return half * half
 
 
 def gcdex(a, b):

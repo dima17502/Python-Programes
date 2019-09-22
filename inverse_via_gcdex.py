@@ -10,7 +10,8 @@ def gcdex(a, b):
             y = p - (a // b) * q
         return d, x, y
     elif  b > a > 0:
-        return gcdex(b, a)
+        d, x, y = gcdex(b, a)
+        return d, y, x
     else:
         print("Invalid input")
         return -1

@@ -45,7 +45,7 @@ def diophantine_eq(a, b, m):
         x = diophantine_eq(a // d, b // d, m // d)
         res.append(x[0])
         for i in range(1, d):
-            res.append((x[0] + i * d) % m)
+            res.append((x[0] + i * (m // d)) % m)
     return res
 
 
